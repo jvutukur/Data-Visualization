@@ -5,13 +5,53 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="./jScripts/datamaps.world.min.js"></script>
     <meta charset="UTF-8">
+    <script src="jscripts/jquery.js"></script>
+    <script src="jscripts/bootstrap/bootstrap.js"></script>
+    <script src="jscripts/d3.v3.min.js"></script>
+    <script type="text/javascript" src="jscripts/bubbleChart.js"></script>
+    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .mouseOverContent {
+            position: absolute;
+            width: 120px;
+            background: #bdd4f9;
+            padding: 4px;
+            pointer-events: none;
+            text-align: center;
+            font: 10px sans-serif;
+            height: 45px;
+            border-radius: 4px;
+            border: 0px;
+        }
+    </style>
 
     <title>Title</title>
 </head>
 <body>
-    <div id="container" style="position: relative; width: 950px; height: 500px;"></div>
+<h3 style="text-align:center"> Data Science</h3>
+<div class="row">
+    <div class="col-md-7">
+        <u><h4 id="mapHeading" style="text-align: center"> Map </h4></u>
+        <div id="worldMapContainer" style="position: relative; width: 750px; height: 500px;"></div>
+    </div>
+    <div class="col-md-5">
+        <u><h4 id="bubbleHeading" style="text-align: center"> </h4></u>
+        <div class="bubble" style=" padding-top: 20px">
+            <div class="col-md-9">
+                <svg id="bubbleSvg" width="350" height="450">
+                </svg>
+            </div>
+            <div class="col-md-3">
+                <svg id="cirlceMapping" width="60" height="500" style="float:right;margin-right: 20px">
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script>
-    var map = new Datamap({element: document.getElementById('container')});
+    var map = new Datamap({element: document.getElementById('worldMapContainer')});
+    createBubbleChart();
 </script>
 </html>
