@@ -8,9 +8,8 @@ function createBubbleChart() {
     d3.select("#cirlceMapping").selectAll("*").remove();
     fullData = [];
 
-
     $("#bubbleHeading").html("Chart Heading ");
-    d3.csv("Data/ml_relatedTags.csv", function (rows) {
+    d3.csv("ml_relatedTags.csv", function (rows) {
         loadData(rows);
         addBubbles(fullData);
     })
@@ -31,7 +30,7 @@ function loadData(rows){
     var n = fullData.length,
         m = 1,
         padding = 6,
-        radius1 = d3.scale.sqrt().range([0, 10]),
+        radius1 = d3.scale.sqrt().range([0, 2]),
         color = d3.scale.linear().domain([0,50]).range(['#000000','#F0F0F0']),
         x = d3.scale.ordinal().domain(d3.range(m)).rangePoints([0, width], 1);
 
