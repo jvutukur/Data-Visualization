@@ -23,19 +23,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sampleWorldMap.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sampleWorldMap.html">
+      <file leaf-file-name="sampleWorldMap - Copy.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sampleWorldMap - Copy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#u#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#u#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="196">
+              <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jScripts/map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,6 +125,8 @@
         <option value="$PROJECT_DIR$/jScripts/bubbleChart.js" />
         <option value="$PROJECT_DIR$/jScripts/forceDirectedGraph.js" />
         <option value="$PROJECT_DIR$/force-directed.html" />
+        <option value="$PROJECT_DIR$/jScripts/map.js" />
+        <option value="$PROJECT_DIR$/sampleWorldMap - Copy.html" />
       </list>
     </option>
   </component>
@@ -209,17 +214,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eswar\Desktop\DV_Project\Chropleth\ram" />
       <recent name="C:\Users\eswar\Desktop\DV_Project\Chropleth" />
       <recent name="C:\Users\eswar\Desktop\DV_Project\Chropleth\Data" />
       <recent name="C:\Users\eswar\Desktop\DV_Project\Chropleth\jScripts" />
       <recent name="C:\Users\eswar\Google Drive\DV_Project\Chropleth\jScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.force-directed.html">
+  <component name="RunManager" selected="JavaScript Debug.sampleWorldMap - Copy.html">
     <configuration default="false" name="sampleWorldMap.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Chropleth/sampleWorldMap.html">
       <method />
     </configuration>
     <configuration default="false" name="force-directed.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Chropleth/force-directed.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="sampleWorldMap - Copy.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Chropleth/sampleWorldMap - Copy.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -275,14 +284,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.sampleWorldMap.html" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.force-directed.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.sampleWorldMap - Copy.html" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.force-directed.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.sampleWorldMap.html" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.sampleWorldMap - Copy.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.force-directed.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.sampleWorldMap.html" />
       </list>
     </recent_temporary>
   </component>
@@ -305,18 +316,18 @@
       <workItem from="1479181022172" duration="11012000" />
       <workItem from="1479229194727" duration="3334000" />
       <workItem from="1479514444816" duration="1198000" />
-      <workItem from="1479588311528" duration="5035000" />
+      <workItem from="1479588311528" duration="5658000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36037000" />
+    <option name="totallyTimeSpent" value="36660000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="754" extended-state="1" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1370" height="754" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2695195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2695195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -586,6 +597,22 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jScripts/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sampleWorldMap - Copy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

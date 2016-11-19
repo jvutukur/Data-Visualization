@@ -13,6 +13,7 @@
     <script src="./jscripts/bootstrap/bootstrap.js"></script>
     <script src="./jscripts/d3.v3.min.js"></script>
     <script type="text/javascript" src="./jscripts/bubbleChart.js"></script>
+    <script type="text/javascript" src="./jscripts/map.js"></script>
     <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <style>
@@ -126,16 +127,16 @@ div
  <div id="map" class="tabcontent">
             <u><h4 id="mapHeading" style="text-align: center;"> Map </h4></u>
         <div id="worldMapContainer"></div>
-		<script src="ram/map.js"></script>
+     <script> createMap() </script>
+
  </div>
 <div id="bubble" class="tabcontent">
     <u><h4 id="bubbleHeading" style="text-align: center;"> </h4></u>
     <div class="bubblevg">
-        <svg id="bubbleSvg" width="500" height="500" ">
+        <svg id="bubbleSvg" width="500" height="500" >
         </svg>
 		<svg id="cirlceMapping" width="60" height="200">
         </svg>
-		<div id="worldMapContainer"></div>
     </div>
     </div>
 
