@@ -1,24 +1,48 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<head>
+    <script src="./jScripts/jquery.js"></script>
+    <script src="./jScripts/bootstrap/bootstrap.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="./jScripts/forceDirectedGraph.js"></script>
+    <script type="text/javascript" src="./jScripts/d3.layout.cloud.js"></script>
+    <meta charset="utf-8">
+    <style>
 
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
+        .links line {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
 
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
+        .nodes circle {
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
 
-</style>
+    </style>
 
+</head>
+
+<body>
 <svg width="1500" height="1500"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script type="text/javascript" src="./jScripts/forceDirectedGraph.js"></script>
+<div >
+    <u><h4 id="bubbleHeading" style="text-align: center"> </h4></u>
+    <div class="bubble" style=" padding-top: 20px">
+        <div id="bubbleSvg" class="col-md-12">
+        </div>
+        <div class="col-md-3">
+            <svg id="cirlceMapping" width="60" height="500" style="float:right;margin-right: 20px">
+            </svg>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+
+
 <script>
-createForceDirectedGraph();
+    $(document).ready(createForceDirectedGraph);
 </script>
 
 

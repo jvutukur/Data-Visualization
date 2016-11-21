@@ -2,7 +2,9 @@ var fullData = [];
 var partData = [];
 var nodeData;
 
-function createBubbleChart() {
+function createBubbleChart(tagName) {
+    alert(tagName);
+    /*
     $("#bubbleHeading").html("");
     d3.select("#bubbleSvg").selectAll("*").remove();
     d3.select("#cirlceMapping").selectAll("*").remove();
@@ -13,6 +15,7 @@ function createBubbleChart() {
         loadData(rows);
         addBubbles(fullData);
     })
+    */
 }
 
 function loadData(rows){
@@ -80,7 +83,7 @@ function addBubbles(){
         width = 350 - margin.left - margin.right,
         height = 450 - margin.top - margin.bottom;
 
-    var n = fullData.length,
+    var n = nodeData.length,
         m = 1,
         padding = 6,
         radius = d3.scale.sqrt().range([0, 7]),

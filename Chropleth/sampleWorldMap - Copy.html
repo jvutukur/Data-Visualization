@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 
-    <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
 
-    <script src="https://unpkg.com/topojson@2"></script>
-
-    <script src="./jScripts/datamaps.world.min.js"></script>
     <meta charset="UTF-8">
-    <script src="./jscripts/jquery.js"></script>
-    <script src="./jscripts/bootstrap/bootstrap.js"></script>
-    <script src="./jscripts/d3.v3.min.js"></script>
+    <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
+    <script src="https://unpkg.com/topojson@2"></script>
+    <script src="./jScripts/datamaps.world.min.js"></script>
+    <script src="./jScripts/jquery.js"></script>
+    <script src="./jScripts/bootstrap/bootstrap.js"></script>
+    <script src="./jScripts/d3.v3.min.js"></script>
     <script type="text/javascript" src="./jscripts/bubbleChart.js"></script>
     <script type="text/javascript" src="./jscripts/map.js"></script>
+    <script type="text/javascript" src="./jScripts/timelinev4.js"></script>
     <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <style>
@@ -121,8 +120,9 @@ div
   <p>Tokyo is the capital of Japan.</p>
 </div>
 <div id="placeholder" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Timeline</h3>
+    <script> timeline()</script>
+
 </div>
  <div id="map" class="tabcontent">
             <u><h4 id="mapHeading" style="text-align: center;"> Map </h4></u>
