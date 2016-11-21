@@ -7,14 +7,18 @@
     <script src="./jScripts/jquery.js"></script>
     <script src="./jScripts/bootstrap/bootstrap.js"></script>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script> -->
+    <!-- scripts needed for map -->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="./jScripts/datamaps.all.min.js"></script>
     <script src="./jScripts/gitscript.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+     <script src="https://d3js.org/d3.v4.min.js"></script>
 
+    <!-- scripts needed for force directed graph -->
+    <script type="text/javascript" src="./jScripts/forceDirectedGraph.js"></script>
+    <script type="text/javascript" src="./jScripts/d3.layout.cloud.js"></script>
 
-
+    <!--  scripts needed for timeLine -->
     <script src="jScripts/timeLineCreation.js"></script>
 
     <link href="css/MyCSS.css" rel="stylesheet" type="text/css">
@@ -59,6 +63,13 @@
     </div>
     <div id="ForceDirectedGraph" class="tabcontent" >
         <h3>Force Directed Graph</h3>
+        <div>
+                <div class="col-md-8" id="ForceDirectedGraphContent">
+                </div>
+                <div class="col-md-3" id="wordCloud">
+                </div>
+        </div>
+
     </div>
 
     <div id="TimeLine" class="tabcontent">
@@ -104,6 +115,9 @@
             createTimeLine();
         }
 
+        if(document.getElementById(cityName).id == 'ForceDirectedGraph'){
+            createForceDirectedGraph();
+        }
         evt.currentTarget.className += " active";
     };
 </script>

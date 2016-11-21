@@ -64,5 +64,20 @@ div#tags {
     width: 200px;
     background: yellow;
     float: right;
+}
 
+
+ .links line {
+     stroke: #999;
+     stroke-opacity: 0.6;
+ }
+
+.nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+#worldMapContainer{
+    width:700px;
+    height:475px;
 }

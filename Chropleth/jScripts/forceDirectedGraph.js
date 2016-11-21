@@ -3,9 +3,14 @@
     // dependent javascript
     createForceDirectedGraph = function(){
 
-        var svg = d3.select("svg"),
-            width = +svg.attr("width"),
-            height = +svg.attr("height");
+        $("#ForceDirectedGraphContent").html("");
+        var canvas = d3.select("#ForceDirectedGraphContent"),
+            width = 800,
+            height = 800;
+
+        var svg =canvas.append("svg")
+            .attr("width", width)
+            .attr("height", height);
 
         var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -120,13 +125,7 @@
     function createWordCloud(tagName) {
         alert(tagName);
         currentTagName = tagName;
-
-         $("#bubbleHeading").html("");
-         d3.select("#bubbleSvg").selectAll("*").remove();
-         d3.select("#cirlceMapping").selectAll("*").remove();
          fullData = [];
-
-         $("#bubbleHeading").html("Chart Heading ");
         d3.json("data1.json", function(error, graph) {
             if (error) throw error;
             fullData = graph.links;
@@ -136,6 +135,7 @@
 
     function addWordCloud() {
 
+        $("#wordCloud").html("");
         var fill = d3.scaleOrdinal(d3.schemeCategory20);
         var data = nodeData; //node data is array of objects
         var data = data.map(function(d) {
@@ -146,7 +146,7 @@
 
 
         setTimeout(function(){
-            d3.layout.cloud().size([1000, 1500])
+            d3.layout.cloud().size([300, 500])
                 .words(data)
                 .padding(5)
                 .rotate(function() { return ~~(Math.random() * 2) * 0; })
@@ -157,14 +157,13 @@
         },10)
 
         function draw(words) {
-
             console.log("in draw word cloud");
-            d3.select("#bubbleSvg").append("svg")
-                .attr("width", 1000)
-                .attr("height", 1000)
+            d3.select("#wordCloud").append("svg")
+                .attr("width", 300)
+                .attr("height", 500)
                 .attr("background",'antiquewhite')
                 .append("g")
-                .attr("transform", "translate(500,500)")
+                .attr("transform", "translate(150,250)")
                 .selectAll("text")
                 .data(words)
                 .enter().append("text")
