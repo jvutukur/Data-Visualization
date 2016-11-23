@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>DV_Project</title>
@@ -8,15 +8,13 @@
     <script src="./jScripts/bootstrap/bootstrap.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
-    <!-- scripts needed for force directed graph -->
-    <script type="text/javascript" src="./jScripts/forceDirectedGraph.js"></script>
-    <script type="text/javascript" src="./jScripts/d3.layout.cloud.js"></script>
+    <!--  scripts needed for timeLine -->
+    <script src="jScripts/timeLineCreation.js"></script>
 
     <link href="css/MyCSS.css" rel="stylesheet" type="text/css">
     <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 </head>
-
 <body>
 <div>
     <ul class="tab">
@@ -26,15 +24,11 @@
     </ul>
 </div>
 
-<div id="ForceDirectedGraph">
-    <h3>Force Directed Graph</h3>
-    <div>
-        <div class="col-md-8" id="ForceDirectedGraphContent">
-        </div>
-        <div class="col-md-3" id="wordCloud">
-        </div>
-    </div>
+<div id="TimeLine" class="tabcontent">
+    <h3>Time Line</h3>
+    <div id="TimeLineContent">
 
+    </div>
 </div>
 <script>
     $(document).ready(function () {
@@ -48,10 +42,9 @@
         else {
             var jsonDataString = localStorage.getItem('myStorage');
             var jsonData = JSON.parse(jsonDataString);
-            createForceDirectedGraph(jsonData.currentTagName);
+            createTimeLine(jsonData.currentTagName);
         }
     });
 </script>
 </body>
-
 </html>

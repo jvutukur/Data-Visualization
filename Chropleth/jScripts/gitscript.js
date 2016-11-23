@@ -1,4 +1,6 @@
-function fetch(path, toggle) {
+
+
+function fetch(path, toggle, tagName) {
     var series = [];
     d3.csv(path, function (error, data) {
         data.forEach(function (d) {

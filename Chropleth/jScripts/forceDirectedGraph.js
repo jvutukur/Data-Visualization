@@ -1,8 +1,6 @@
-
-    // bubbleChart script is now loaded and executed.
-    // dependent javascript
-    createForceDirectedGraph = function(){
-
+var currentTagName;
+function createForceDirectedGraph(tagName){
+        currentTagName = tagName;
         $("#ForceDirectedGraphContent").html("");
         var canvas = d3.select("#ForceDirectedGraphContent"),
             width = 800,
@@ -123,7 +121,6 @@
     }
 
     function createWordCloud(tagName) {
-        alert(tagName);
         currentTagName = tagName;
          fullData = [];
         d3.json("data1.json", function(error, graph) {
@@ -154,7 +151,7 @@
                 .fontSize(function(d) { return d.size; })
                 .on("end", draw)
                 .start();
-        },10)
+        },200)
 
         function draw(words) {
             console.log("in draw word cloud");
