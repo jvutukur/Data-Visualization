@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DV_Project</title>
+
+    <script src="./jScripts/jquery.js"></script>
+    <script src="./jScripts/bootstrap/bootstrap.js"></script>
+
+    <!-- scripts needed for map -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="./jScripts/datamaps.all.min.js"></script>
+    <script src="./jScripts/gitscript.js"></script>
+
+    <link href="css/MyCSS.css" rel="stylesheet" type="text/css">
+    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div>
+    <div>
+        <ul class="tab">
+            <li><a href="./map.html" class="tablinks">Map</a></li>
+            <li><a href="./force-directed.html" class="tablinks">ForceDirectedGraph</a></li>
+            <li><a href="./timeLine.html" class="tablinks">TimeLine</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+
+            <div id="map" class="tabcontent">
+                <u><h4 id="mapHeading" style="text-align: center;"> Map </h4></u>
+                <div id="worldMapContainer"></div>
+                <div><input id="qwe" type="button" value="ToggleMap"/></div>
+                <script>
+                    var flag = 0;
+                    $("#qwe").click(function () {
+                        if (flag == 0) {
+                            fetch("data2.csv", "world");
+                            flag = 1;
+                        }
+                        else {
+                            fetch("data3.csv", "usa");
+                            flag = 0
+                        }
+
+                    });
+                </script>
+            </div>
+
+        </div>
+
+
+        <div id="tags" class="col-md-3">
+            <h2>Data Science Tags</h2>
+            <p>This are top 20 data science tags</p>
+            <button type="button"><span class="label label-default">Machine Learning</span></button>
+            <button type="button"><span class="label label-primary">Text Mining</span></button>
+            <button type="button"><span class="label label-success">Social Media Mining</span></button>
+            <button type="button"><span class="label label-info">Info Label</span></button>
+            <button type="button"><span class="label label-warning">Warning Label</span></button>
+            <button type="button"><span class="label label-danger">Danger Label</span></button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script>
+
+</script>
+</html>

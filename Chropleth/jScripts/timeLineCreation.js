@@ -1,4 +1,4 @@
-function createTimeLine(){
+function createTimeLine(tagName, year){
 // set the dimensions and margins of the graph
 
 

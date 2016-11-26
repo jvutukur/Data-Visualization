@@ -1,8 +1,9 @@
-function store(tagName){
+function store(tag){
     var jsonData = {
-        "currentTagName" : tagName
+        "currentTagName" : tag.value
     }
 
-    localStorage.setItem()
+    localStorage.setItem('myStorage',JSON.stringify(jsonData));
+    location.reload();
 
 }

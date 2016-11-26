@@ -3,8 +3,8 @@ function createForceDirectedGraph(tagName){
         currentTagName = tagName;
         $("#ForceDirectedGraphContent").html("");
         var canvas = d3.select("#ForceDirectedGraphContent"),
-            width = 800,
-            height = 800;
+            width = 600,
+            height = 1000;
 
         var svg =canvas.append("svg")
             .attr("width", width)
@@ -26,8 +26,6 @@ function createForceDirectedGraph(tagName){
                 .data(graph.links)
                 .enter().append("line")
                 .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-
 
             var node = svg.append("g")
                 .attr("class", "nodes")
@@ -88,8 +86,6 @@ function createForceDirectedGraph(tagName){
 
 
     }
-
-
 
 // ###########################################################################################
 // https://github.com/d3/d3/blob/master/CHANGES.md
