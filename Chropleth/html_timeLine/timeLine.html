@@ -4,45 +4,88 @@
     <meta charset="UTF-8">
     <title>DV_Project</title>
 
-    <script src="./jScripts/jquery.js"></script>
-    <script src="./jScripts/bootstrap/bootstrap.js"></script>
+    <script src="../jScripts/jquery.js"></script>
+    <script src="../jScripts/bootstrap/bootstrap.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--  scripts needed for timeLine -->
-    <script src="jScripts/timeLineCreation.js"></script>
+    <script src="../jScripts/timeLineCreation.js"></script>
+    <script type = "text/javascript" src="../jScripts/globalScript.js"></script>
 
-    <link href="css/MyCSS.css" rel="stylesheet" type="text/css">
-    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/MyCSS.css" rel="stylesheet" type="text/css">
+    <link href="../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+    .axis--x path {
+    display: none;
+    }
+
+    .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+    }
+    </style>
 </head>
 <body>
-<div>
-    <ul class="tab">
-        <li><a href="./map.html" class="tablinks">Map</a></li>
-        <li><a href="./force-directed.html" class="tablinks">ForceDirectedGraph</a></li>
-        <li><a href="./timeLine.html" class="tablinks">TimeLine</a></li>
-    </ul>
+<div class="btn-group">
+    <a id="mapLink" href="../html_map/map.html" class="btn btn-primary">Map</a></li>
+    <a id="forceDirectedLink" href="../html_forceDirectedGraph/force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
+    <a id="timeLineLink" href="../html_timeLine/timeLine.html" class="btn btn-primary">TimeLine</a></li>
 </div>
 
 <div id="TimeLine" class="tabcontent">
     <h3>Time Line</h3>
+    <input id="option1" type="radio" name="field" value="3months" onclick="updateTime()">
+    <label for="option1">3 Months</label>
+    <input id="option2" type="radio" name="field" value="6months" onclick="updateTime()">
+    <label for="option2">6 Months</label>
+    <input id="option3" type="radio" name="field" value="1year" onclick="updateTime()">
+    <label for="option3">1 year</label>
+    <input id="option4" type="radio" name="field" value="fulldata" onclick="updateTime()">
+    <label for="option4">full data</label>
+    <div class="mouseOverContent"></div>
     <div id="TimeLineContent">
 
     </div>
 </div>
+<div id="tags" class="col-md-1" style=" position:fixed; top:0; right:20px;padding-right:0px;padding-left: 0px;">
+    <div class="btn-group-vertical">
+        <button type="button" onclick="store(this)" id="deep-learning" class="btn btn-info btn-sm" >deep-learning</button>
+        <button type="button" onclick="store(this)" id="machine-learning" class="btn btn-info btn-sm">machine-learning</button>
+        <button type="button" onClick="store(this)" id="artificial-intelligence" class="btn btn-info btn-sm">artificial-intelligence</button>
+        <button type="button" onClick="store(this)" id="nlp" class="btn btn-info btn-sm">nlp</button>
+    </div>
+</div>
+
 <script>
+    var year = "fullData";
+    function updateTime(){
+        var year = document.querySelector('input[name = "field"]:checked').value;
+        console.log(year);
+        var jsonDataString = localStorage.getItem('myStorage');
+        var jsonData = JSON.parse(jsonDataString);
+        createTimeLine(jsonData.currentTagName,year);
+        $("#timeLineLink").attr('class','btn btn-success');
+        $("#"+jsonData.currentTagName).attr('class','btn btn-success');
+    };
     $(document).ready(function () {
         if (typeof localStorage.getItem('myStorage') == 'undefined' || localStorage.getItem('myStorage') == null) {
             var jsonData = {
                 "currentTagName": "machine-learning"
             };
             localStorage.setItem('myStorage', JSON.stringify(jsonData));
-            createTimeLine("machine-learning");
+            createTimeLine("machine-learning",year);
+            $("#timeLineLink").attr('class','btn btn-success');
+            $("#"+jsonData.currentTagName).attr('class','btn btn-success');
         }
         else {
             var jsonDataString = localStorage.getItem('myStorage');
             var jsonData = JSON.parse(jsonDataString);
-            createTimeLine(jsonData.currentTagName);
+            createTimeLine(jsonData.currentTagName,year);
+            $("#timeLineLink").attr('class','btn btn-success');
+            $("#"+jsonData.currentTagName).attr('class','btn btn-success');
         }
     });
 </script>

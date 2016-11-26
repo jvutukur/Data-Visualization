@@ -1,6 +1,6 @@
 function store(tag){
     var jsonData = {
-        "currentTagName" : tag.value
+        "currentTagName" : tag.attributes.id.nodeValue
     }
 
     localStorage.setItem('myStorage',JSON.stringify(jsonData));
