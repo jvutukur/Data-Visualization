@@ -17,7 +17,8 @@ function createForceDirectedGraph(tagName){
             .force("charge", d3.forceManyBody())
             .force("center", d3.forceCenter(width / 2, height / 2));
 
-        d3.json("data1.json", function(error, graph) {
+        var fileName = tagName+"-fsd.json";
+        d3.json(fileName, function(error, graph) {
             if (error) throw error;
 
             var link = svg.append("g")
@@ -117,9 +118,11 @@ function createForceDirectedGraph(tagName){
     }
 
     function createWordCloud(tagName) {
+        $(".loader").show();
         currentTagName = tagName;
          fullData = [];
-        d3.json("data1.json", function(error, graph) {
+        var fileName = tagName+"-fsd.json";
+        d3.json(fileName, function(error, graph) {
             if (error) throw error;
             fullData = graph.links;
             loadData();
@@ -147,7 +150,7 @@ function createForceDirectedGraph(tagName){
                 .fontSize(function(d) { return d.size; })
                 .on("end", draw)
                 .start();
-        },200)
+        },50)
 
         function draw(words) {
             console.log("in draw word cloud");
@@ -169,5 +172,7 @@ function createForceDirectedGraph(tagName){
                     return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
                 })
                 .text(function(d) { return d.text; });
+
+            $(".loader").hide();
         }
     }

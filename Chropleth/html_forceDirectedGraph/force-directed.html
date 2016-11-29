@@ -16,12 +16,31 @@
     <link href="../css/MyCSS.css" rel="stylesheet" type="text/css">
     <link href="../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="../css/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            left: 45%;
+            top: 30%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
 <body>
 <div class="btn-group">
         <a id="mapLink" href="../html_map/map.html" class="btn btn-primary">Map</a></li>
-        <a id="forceDirectedLink" href="../html_forceDirectedGraph/force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
+        <a id="forceDirectedLink" href="./force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
         <a id="timeLineLink" href="../html_timeLine/timeLine.html" class="btn btn-primary">TimeLine</a></li>
 </div>
 
@@ -33,7 +52,7 @@
         <div class="col-md-3" id="wordCloud">
         </div>
     </div>
-    <div id="tags" class="col-md-1" style=" position:fixed; top:0; right:20px;padding-right:0px;padding-left: 0px;">
+    <div id="tags" class="col-md-1" style=" position:fixed; top:0; right:25px;padding-right:0px;padding-left: 0px;">
         <div class="btn-group-vertical">
         <button type="button" onclick="store(this)" id="deep-learning" class="btn btn-info btn-sm" >deep-learning</button>
         <button type="button" onclick="store(this)" id="machine-learning" class="btn btn-info btn-sm">machine-learning</button>
@@ -42,6 +61,7 @@
         </div>
     </div>
 </div>
+<div class="loader"  style="display: none" ></div> <!-- -->
 <script>
     $(document).ready(function () {
         if (typeof localStorage.getItem('myStorage') == 'undefined' || localStorage.getItem('myStorage') == null) {

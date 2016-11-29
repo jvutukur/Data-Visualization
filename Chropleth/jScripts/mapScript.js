@@ -1,4 +1,7 @@
 
+var flag = 0;
+
+
 
 function fetch(path, toggle, tagName) {
     var series = [];
@@ -6,7 +9,7 @@ function fetch(path, toggle, tagName) {
         data.forEach(function (d) {
             var temp = [];
             temp.push(d.id);
-            temp.push(d.value);
+            temp.push(+d.value);
             series.push(temp);
         });
         format(series, toggle);
@@ -100,4 +103,19 @@ function drawMap(dataset, toggle) {
             });
         }
     });
+}
+
+function toggleMap(){
+    var jsonDataString = localStorage.getItem('myStorage');
+    var jsonData = JSON.parse(jsonDataString);
+    if (flag == 0) {
+        let fileName = jsonData.currentTagName + "-world.csv";
+        fetch(fileName, "world");
+        flag = 1;
+    }
+    else {
+        let fileName = jsonData.currentTagName + "-usa.csv";
+        fetch(fileName, "usa");
+        flag = 0;
+    }
 }
