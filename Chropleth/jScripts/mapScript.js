@@ -109,7 +109,7 @@ function toggleMap(){
     var jsonDataString = localStorage.getItem('myStorage');
     var jsonData = JSON.parse(jsonDataString);
     if (flag == 0) {
-        let fileName = jsonData.currentTagName + "-world.csv";
+        let fileName = jsonData.currentTagName + "-tags.csv";
         fetch(fileName, "world");
         flag = 1;
     }

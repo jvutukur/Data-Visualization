@@ -45,7 +45,7 @@ function createForceDirectedGraph(tagName){
                 .text(function(d) { return d.id; });
 
             node.on("click", function(d){
-                createWordCloud(d.id)
+                createWordCloud(d.id,tagName)
             });
 
             simulation
@@ -117,11 +117,11 @@ function createForceDirectedGraph(tagName){
         addWordCloud();
     }
 
-    function createWordCloud(tagName) {
+    function createWordCloud(tagName,currentAnalysisTagName) {
         $(".loader").show();
         currentTagName = tagName;
          fullData = [];
-        var fileName = tagName+"-fsd.json";
+        var fileName = currentAnalysisTagName+"-fsd.json";
         d3.json(fileName, function(error, graph) {
             if (error) throw error;
             fullData = graph.links;
