@@ -17,7 +17,7 @@ function createForceDirectedGraph(tagName){
             .force("charge", d3.forceManyBody())
             .force("center", d3.forceCenter(width / 2, height / 2));
 
-        var fileName = tagName+"-fsd.json";
+        var fileName = tagName+".json";
         d3.json(fileName, function(error, graph) {
             if (error) throw error;
 
@@ -121,7 +121,7 @@ function createForceDirectedGraph(tagName){
         $(".loader").show();
         currentTagName = tagName;
          fullData = [];
-        var fileName = currentAnalysisTagName+"-fsd.json";
+        var fileName = currentAnalysisTagName+".json";
         d3.json(fileName, function(error, graph) {
             if (error) throw error;
             fullData = graph.links;
