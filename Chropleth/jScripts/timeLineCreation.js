@@ -46,7 +46,7 @@ function createTimeLine(tagname, year) {
             d.PostCount = +d.PostCount;
         });
         var length = data.length;
-        data[length - 1].PostCount = data[length - 2].PostCount - 4;
+        data[length - 1].PostCount = data[length - 2].PostCount + 1;
         function tofilter(datefrom) {
             return datefrom.date.getTime() > min.getTime();
         }
@@ -123,7 +123,7 @@ function createTimeLine(tagname, year) {
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html("<b><h5> Date: " + d.date.substring(4, 12) + "<br>" + "Count: " + d.PostCount + "<br></h5> </b>")
+                    div.html("<b><h5>Date: " + (+d.date.getUTCMonth() + 1) + "/" + d.date.getUTCDate() + "/" + d.date.getUTCFullYear() + "<br>" + "count: " + d.PostCount + "<br></h5> </b>")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 75) + "px")
                         .style("color", "black");

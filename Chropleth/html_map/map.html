@@ -188,12 +188,12 @@
         if (typeof localStorage.getItem('myStorage') == 'undefined' || localStorage.getItem('myStorage') == null) {
             jsonData = {
                 "currentTagName": "machine-learning",
-                "currentBox": "0"
+                "currentBox": "2"
             };
             localStorage.setItem('myStorage', JSON.stringify(jsonData));
             toggleMap();
             $("#mapLink").attr('class', 'btn btn-success');
-            $("#" + jsonData.currentTagName).attr('class', 'btn btn-success');
+            $("#" + jsonData.currentTagName).attr('class', 'btn btn-success btn-sm');
         }
         else {
             jsonDataString = localStorage.getItem('myStorage');
