@@ -4,7 +4,7 @@ function createTimeLine(tagname, year) {
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width = 1160 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 480 - margin.top - margin.bottom;
 
 // set the ranges
     var x = d3.scaleTime().rangeRound([0, width]);
@@ -178,7 +178,7 @@ function createTimeLine(tagname, year) {
         svg.append("g")
             .call(d3.axisLeft(y));
 
-        var wid = margin.left - 40;
+        var wid = margin.left - 30;
         var hei = margin.top + 10;
         svg.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
@@ -186,8 +186,8 @@ function createTimeLine(tagname, year) {
             .style("stroke", "#000")
             .text("No. of posts");
 
-        wid = width - 10;
-        hei = height + 20;
+        wid = width -10 ;
+        hei = height - 10;
         svg.append("text")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
             .attr("transform", "translate(" + wid + "," + hei + ")")
