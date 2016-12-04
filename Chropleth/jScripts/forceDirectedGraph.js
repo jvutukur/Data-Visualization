@@ -2,9 +2,10 @@ var currentTagName;
 function createForceDirectedGraph(tagName){
         currentTagName = tagName;
         $("#ForceDirectedGraphContent").html("");
+        $("#forceDirectedGraphHeading").html("Force Directed Graph for "+tagName);
         var canvas = d3.select("#ForceDirectedGraphContent"),
-            width = 800,
-            height = 800;
+            width = 1020,
+            height = 1020;
 
         var svg =canvas.append("svg")
             .attr("width", width)
@@ -95,7 +96,7 @@ function createForceDirectedGraph(tagName){
     var nodeData=[];
     var currentTagName;
 
-    function loadData(){
+    function loadData(currentAnalysisTagName){
 
         nodeData = fullData;
         function filterDataLogic(currentObject){
@@ -132,6 +133,11 @@ function createForceDirectedGraph(tagName){
     function addWordCloud() {
 
         $("#wordCloud").html("");
+        var heading = "" + currentTagName + " cluster";
+        heading = heading.replace("<","");
+        heading = heading.replace(">","");
+        $("#wordCloudHeading").html(heading);
+
         var fill = d3.scaleOrdinal(d3.schemeCategory20);
         var data = nodeData; //node data is array of objects
         var data = data.map(function(d) {
