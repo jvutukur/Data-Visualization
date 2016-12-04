@@ -3,8 +3,8 @@ function createForceDirectedGraph(tagName){
         currentTagName = tagName;
         $("#ForceDirectedGraphContent").html("");
         var canvas = d3.select("#ForceDirectedGraphContent"),
-            width = 600,
-            height = 1000;
+            width = 800,
+            height = 800;
 
         var svg =canvas.append("svg")
             .attr("width", width)

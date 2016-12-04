@@ -11,7 +11,7 @@
     <!-- scripts needed for force directed graph -->
     <script type="text/javascript" src="../jScripts/forceDirectedGraph.js"></script>
     <script type="text/javascript" src="../jScripts/d3.layout.cloud.js"></script>
-    <script type = "text/javascript" src="../jScripts/globalScript.js"></script>
+    <script type="text/javascript" src="../jScripts/globalScript.js"></script>
 
     <link href="../css/MyCSS.css" rel="stylesheet" type="text/css">
     <link href="../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -31,38 +31,47 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
 <div class="btn-group">
-        <a id="mapLink" href="../html_map/map.html" class="btn btn-primary">Map</a></li>
-        <a id="forceDirectedLink" href="./force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
-        <a id="timeLineLink" href="../html_timeLine/timeLine.html" class="btn btn-primary">TimeLine</a></li>
+    <a id="mapLink" href="../html_map/map.html" class="btn btn-primary">Map</a></li>
+    <a id="timeLineLink" href="../html_timeLine/timeLine.html" class="btn btn-primary">TimeLine</a></li>
+    <a id="forceDirectedLink" href="./force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
 </div>
 
 <div id="ForceDirectedGraph">
     <h3>Force Directed Graph</h3>
     <div>
-        <div class="col-md-7" id="ForceDirectedGraphContent">
+        <div id="ForceDirectedGraphContent"> <!-- class="col-md-7" -->
         </div>
         <div class="col-md-3" id="wordCloud">
         </div>
     </div>
     <div id="tags" class="col-md-1" style=" position:fixed; top:0; right:25px;padding-right:0px;padding-left: 0px;">
         <div class="btn-group-vertical">
-        <button type="button" onclick="store(this)" id="deep-learning" class="btn btn-info btn-sm" >deep-learning</button>
-        <button type="button" onclick="store(this)" id="machine-learning" class="btn btn-info btn-sm">machine-learning</button>
-        <button type="button" onClick="store(this)" id="artificial-intelligence" class="btn btn-info btn-sm">artificial-intelligence</button>
-        <button type="button" onClick="store(this)" id="nlp" class="btn btn-info btn-sm">nlp</button>
+            <button type="button" onclick="store(this)" id="deep-learning" class="btn btn-info btn-sm">deep-learning
+            </button>
+            <button type="button" onclick="store(this)" id="machine-learning" class="btn btn-info btn-sm">
+                machine-learning
+            </button>
+            <button type="button" onClick="store(this)" id="artificial-intelligence" class="btn btn-info btn-sm">
+                artificial-intelligence
+            </button>
+            <button type="button" onClick="store(this)" id="nlp" class="btn btn-info btn-sm">nlp</button>
         </div>
     </div>
 </div>
 
-<div class="loader"  style="display: none" ></div>
+<div class="loader" style="display: none"></div>
 <script>
     $(document).ready(function () {
         if (typeof localStorage.getItem('myStorage') == 'undefined' || localStorage.getItem('myStorage') == null) {
@@ -73,15 +82,15 @@
             localStorage.setItem('myStorage', JSON.stringify(jsonData));
             createForceDirectedGraph("machine-learning");
 
-            $("#forceDirectedLink").attr('class','btn btn-success');
-            $("#"+jsonData.currentTagName).attr('class','btn btn-success');
+            $("#forceDirectedLink").attr('class', 'btn btn-success');
+            $("#" + jsonData.currentTagName).attr('class', 'btn btn-success');
         }
         else {
             var jsonDataString = localStorage.getItem('myStorage');
             var jsonData = JSON.parse(jsonDataString);
             createForceDirectedGraph(jsonData.currentTagName);
-            $("#forceDirectedLink").attr('class','btn btn-success');
-            $("#"+jsonData.currentTagName).attr('class','btn btn-success');
+            $("#forceDirectedLink").attr('class', 'btn btn-success');
+            $("#" + jsonData.currentTagName).attr('class', 'btn btn-success');
         }
     });
 </script>

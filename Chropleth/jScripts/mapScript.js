@@ -1,9 +1,5 @@
 
-var flag = 0;
-
-
-
-function fetch(path, toggle, tagName) {
+function fetch(path, toggle,tagName) {
     var series = [];
     d3.csv(path, function (error, data) {
         data.forEach(function (d) {
@@ -12,7 +8,7 @@ function fetch(path, toggle, tagName) {
             temp.push(+d.value);
             series.push(temp);
         });
-        format(series, toggle);
+        format(series, toggle, tagName);
     });
 }
 /*var series = [
@@ -39,7 +35,7 @@ function fetch(path, toggle, tagName) {
 // Datamaps expect data in format:
 // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},
 //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }
-function format(series, toggle) {
+function format(series, toggle, tagName) {
     var dataset = {};
     // We need to colorize every country based on "numberOfWhatever"
     // colors should be uniq for every value.
@@ -47,14 +43,21 @@ function format(series, toggle) {
     var onlyValues = series.map(function (obj) {
         return obj[1];
     });
-    console.log(series);
+    //console.log(series);
     var minValue = Math.min.apply(null, onlyValues),
         maxValue = Math.max.apply(null, onlyValues);
+    var sum = 0;
+
+    for( var i = 0; i < onlyValues.length; i++ ){
+        sum += onlyValues[i]; //don't forget to add the base
+    }
+
+    var avg = sum/onlyValues.length;
     // create color palette function
-    // color can be whatever you wish
+    // color can be whatever you wish  12571622, 8929693
     var paletteScale = d3.scale.linear()
-        .domain([minValue, maxValue])
-        .range(["#EFEFFF", "#02386F"]); // blue color
+        .domain([minValue, avg, maxValue])
+        .range(["#BFE6E6","#66B97D","#66B80D"]);
     // fill dataset in appropriate format
     series.forEach(function (item) { //
         // item example value ["USA", 70]
@@ -62,14 +65,25 @@ function format(series, toggle) {
             value = item[1];
         dataset[iso] = {numberOfThings: value, fillColor: paletteScale(value)};
     });
-    drawMap(dataset, toggle);
+    drawMap(dataset, toggle,tagName);
 }
-function drawMap(dataset, toggle) {
+function drawMap(dataset, toggle, tagName) {
     // render map
-    $('#worldMapContainer').html("");
+    var container;
+    if(toggle == 'world'){
+        $('#worldMapContainer').html("");
+        $('#worldMapHeading').html("World Map Choropleth for "+ tagName );
+        container = document.getElementById('worldMapContainer');
+    }
+    else{
+        $('#usaMapContainer').html("");
+        $('#usaMapHeading').html("USA Map Choropleth for "+ tagName);
+        container = document.getElementById('usaMapContainer');
+    }
+
     new Datamap({
         scope: toggle,
-        element: document.getElementById('worldMapContainer'),
+        element: container,
         projection: 'mercator', // big world map
         // countries don't listed in dataset will be painted with this color
         fills: {defaultFill: '#F5F5F5'},
@@ -93,7 +107,7 @@ function drawMap(dataset, toggle) {
                 // tooltip content
                 return ['<div class="hoverinfo">',
                     '<strong>', geo.properties.name, '</strong>',
-                    '<br>Tagcount: <strong>', data.numberOfThings, '</strong>',
+                    '<br>User Count: <strong>', data.numberOfThings, '</strong>',
                     '</div>'].join('');
             }
         },
@@ -108,14 +122,11 @@ function drawMap(dataset, toggle) {
 function toggleMap(){
     var jsonDataString = localStorage.getItem('myStorage');
     var jsonData = JSON.parse(jsonDataString);
-    if (flag == 0) {
-        let fileName = jsonData.currentTagName + "-tags.csv";
-        fetch(fileName, "world");
-        flag = 1;
-    }
-    else {
-        let fileName = jsonData.currentTagName + "-usa.csv";
-        fetch(fileName, "usa");
-        flag = 0;
-    }
+
+        let fileName = "tags"+jsonData.currentTagName + ".csv";
+        fetch(fileName, "world" , jsonData.currentTagName);
+
+        fileName = "tags-usa"+jsonData.currentTagName + ".csv";
+        fetch(fileName, "usa", jsonData.currentTagName);
+
 }

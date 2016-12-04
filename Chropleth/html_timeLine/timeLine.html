@@ -26,26 +26,43 @@
     stroke: steelblue;
     stroke-width: 1.5px;
     }
+
+     .mouseOverContent {
+         position: absolute;
+         width: 180px;
+         background: #bdd4f9;
+         padding: 3px;
+         pointer-events: none;
+         text-align: center;
+         font: 10px sans-serif;
+         height: 50px;
+         border-radius: 4px;
+         border: 0px;
+     }
+
+
     </style>
 </head>
 <body>
 <div class="btn-group">
     <a id="mapLink" href="../html_map/map.html" class="btn btn-primary">Map</a></li>
-    <a id="forceDirectedLink" href="../html_forceDirectedGraph/force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
     <a id="timeLineLink" href="./timeLine.html" class="btn btn-primary">TimeLine</a></li>
+    <a id="forceDirectedLink" href="../html_forceDirectedGraph/force-directed.html" class="btn btn-primary">ForceDirectedGraph</a></li>
 </div>
 
-<div id="TimeLine" class="tabcontent">
-    <h3>Time Line</h3>
+<div id="TimeLine" >
+    <center>
+    <h3 id="timeLineHeading"></h3>
     <input id="option1" type="radio" name="field" value="3months" onclick="updateTime()">
     <label for="option1">3 Months</label>
     <input id="option2" type="radio" name="field" value="6months" onclick="updateTime()">
     <label for="option2">6 Months</label>
     <input id="option3" type="radio" name="field" value="1year" onclick="updateTime()">
     <label for="option3">1 year</label>
-    <input id="option4" type="radio" name="field" value="fulldata" onclick="updateTime()">
+    <input id="option4" type="radio" name="field" value="fulldata" checked="checked" onclick="updateTime()">
     <label for="option4">full data</label>
-    <div class="mouseOverContent"></div>
+    </center>
+    <div class="mouseOverContent" style="opacity:0"></div>
     <div id="TimeLineContent">
 
     </div>
