@@ -1,12 +1,12 @@
 function store(tag){
-    var jsonData = {
-        "currentTagName" : tag.attributes.id.nodeValue
-    }
+    var jsonData = JSON.parse(localStorage.getItem('myStorage'));
+    jsonData.currentTagName = tag.attributes.id.nodeValue;
 
     localStorage.setItem('myStorage',JSON.stringify(jsonData));
     location.reload();
 
 }
+
 
 function moveUp(){
     var jsonDataString = localStorage.getItem('myStorage');
