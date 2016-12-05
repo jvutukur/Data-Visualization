@@ -1,4 +1,4 @@
-var currentTagName;
+    var currentTagName;
 function createForceDirectedGraph(tagName){
         currentTagName = tagName;
         $("#ForceDirectedGraphContent").html("");

@@ -199,7 +199,7 @@
         var jsonDataString;
         var jsonData;
 
-        if (tmp.includes('object') ||  localStorage.getItem('myStorage') == undefined || localStorage.getItem('myStorage') == null) {
+        if (  localStorage.getItem('myStorage') == undefined || tmp.includes('object') ||localStorage.getItem('myStorage') == null) {
             jsonData = {
                 "currentTagName": "machine-learning",
                 "currentBox": "2"
